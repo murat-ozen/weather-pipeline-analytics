@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.log
+
+# Databases (optional, but keep it clean - let users run main.py to create it)
+# data/weather_data.db
+
+# OS
+.DS_Store
+Thumbs.db
