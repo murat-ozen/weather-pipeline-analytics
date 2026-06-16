@@ -13,20 +13,20 @@ An end-to-end data engineering (ETL) and data analytics pipeline that extracts w
 
 ```mermaid
 flowchart TD
-    subgraph Data Ingestion (DE)
+    subgraph ingestion ["Data Ingestion (DE)"]
         A[Open-Meteo REST API] -->|Extract JSON| B(src/extractor.py)
     end
     
-    subgraph Data Transformation (DE)
+    subgraph transformation ["Data Transformation (DE)"]
         B -->|Transform & Clean| C(src/transformer.py)
         C -->|Feature Engineering: comfort indices & anomalies| D[Pandas DataFrame]
     end
 
-    subgraph Data Storage (DE)
+    subgraph storage ["Data Storage (DE)"]
         D -->|Upsert Ingestion| E[(SQLite DB: data/weather_data.db)]
     end
 
-    subgraph Data Analytics & Insights (DA)
+    subgraph analytics ["Data Analytics & Insights (DA)"]
         E -->|Custom SQL Queries| F(src/analytics.py)
         F -->|Matplotlib / Seaborn| G[Visual Charts: exports/]
     end
